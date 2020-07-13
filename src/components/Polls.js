@@ -7,6 +7,7 @@ class Polls extends Component {
         return(
             <div>
                 {this.props.id}
+               
             </div>
         )
     }
