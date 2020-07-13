@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PollPage from './PollPage'
+
 
 class Polls extends Component {
     render(){
         console.log('Polls: ',this.props)
+        const {askedByName, askedByAvatar, optionOne, id} = this.props
+        console.log(id)
+        let modifiedOptionOne = optionOne.split(' ').slice(0,2).join(' ') + '...'
         return(
             <div>
-                {this.props.id}
+                <hr />
+                <h5>{askedByName} asks:</h5>
+                <img 
+                  src={askedByAvatar} width="30"
+                  alt={`Avatar of ${askedByName}`} />
+                <p><strong>Would you rather</strong></p><br />
+                {modifiedOptionOne}
+                <button>vew poll</button>
+                <PollPage id={id} />
+                <hr />
                
             </div>
         )
@@ -16,6 +30,8 @@ class Polls extends Component {
 function mapStateToProps ({authedUser, users, questions},{id}){
     const thisQuestion = questions[id]
     const askedByUser = users[thisQuestion.author]
+    const askedByName = askedByUser['name']
+    const askedByAvatar = askedByUser['avatarURL']
     const optionOne = thisQuestion.optionOne.text
     let votedOptionOne = thisQuestion.optionOne.votes.length
     const optionTwo = thisQuestion.optionTwo.text
@@ -25,7 +41,8 @@ function mapStateToProps ({authedUser, users, questions},{id}){
         authedAnswered = ['yes', users[authedUser]['answers'][id]]
     }
     return{
-        askedByUser,
+        askedByName,
+        askedByAvatar,
         optionOne,
         votedOptionOne,
         optionTwo,
