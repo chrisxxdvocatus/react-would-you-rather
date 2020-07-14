@@ -1,7 +1,9 @@
 import React, {Component}  from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import ListOfPolls from './ListOfPolls'
+import PollPage from './PollPage'
 
 class App extends Component{
   componentDidMount(){
@@ -9,9 +11,13 @@ class App extends Component{
   }
   render(){
     return(
+      <Router>
       <div>
-       <ListOfPolls />
+       <Route path='/' exact component = {ListOfPolls} />
+       <Route path='/polls/:id' component = {PollPage} />
       </div>
+      </Router>
+
     )
   }
 }
