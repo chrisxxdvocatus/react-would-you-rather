@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import PollPage from './PollPage'
 
 
 class Polls extends Component {
-    handleClick =(e, id)=>{
-      e.preventDefault();
+    // handleClick =(e, id)=>{
+    //   e.preventDefault();
 
-    }
+    // }
 
     render(){
         console.log('Polls: ',this.props)
@@ -24,7 +24,8 @@ class Polls extends Component {
                   alt={`Avatar of ${askedByName}`} />
                 <p><strong>Would you rather</strong></p><br />
                 {modifiedOptionOne}
-                <button onClick={(e)=>this.handleClick(e, id)}>vew poll</button>
+                <Link
+                to ='polls/`${this.props.id}`' params={{id}}>vew poll</Link>
                 
                 <hr />
                
