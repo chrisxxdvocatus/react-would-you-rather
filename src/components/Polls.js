@@ -25,7 +25,7 @@ class Polls extends Component {
                 <p><strong>Would you rather</strong></p><br />
                 {modifiedOptionOne}
                 <Link
-                to ='polls/`${this.props.id}`' params={{id}}>vew poll</Link>
+                to ={`polls/${this.props.id}`}>vew poll</Link>
                 
                 <hr />
                

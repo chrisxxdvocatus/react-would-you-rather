@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Polls from './Polls'
 
@@ -16,8 +16,9 @@ class ListOfPolls extends Component {
       }))
     }
     render(){
-        // console.log('ListOfPolls: ',this.props)
+        
         const {authedUser, users} = this.props
+        console.log('ListOfPolls: ',this.props)
         // console.log('local:', this.state)
         return(
             <div>
