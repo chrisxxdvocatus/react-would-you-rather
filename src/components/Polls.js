@@ -13,7 +13,7 @@ class Polls extends Component {
     render(){
         console.log('Polls: ',this.props)
         const {askedByName, askedByAvatar, optionOne, id} = this.props
-        console.log(id)
+        console.log('Polls id',id)
         let modifiedOptionOne = optionOne.split(' ').slice(0,2).join(' ') + '...'
         return(
             <div>
