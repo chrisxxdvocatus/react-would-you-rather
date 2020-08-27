@@ -17,7 +17,7 @@ class PollPage extends Component {
         const { authedUser,
             users,
             questions,
-            id,
+            id,  
             thisQuestion,
             askedByName,
             askedByAvatar,
