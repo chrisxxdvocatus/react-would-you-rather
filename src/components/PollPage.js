@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {saveQuestionAnswer} from '../utils/api.js'
+import {handleUpdateQuestion} from '../actions/questions'
+
 class PollPage extends Component {
     handleState = (e) => {
+        e.preventDefault()
 
+        const {authedUser, id} = this.props
+        dispatch(handleUpdateQuestion({
+            authedUser: authedUser,
+            qid: id,
+            answer: e
+        }))
     }
     render(){
         const { authedUser,
@@ -45,6 +53,7 @@ class PollPage extends Component {
                 <form onSubmit={(e)=>this.handleSubmit(e)}>
                     <input type="radio" value={optionOne} name='optionOne' />{optionOne}
                     <input type="radio" value={optionTwo} name='optionTwo' />{optionTwo}
+                    <input type="submit" value="submit" />
                 </form></h5>
                 :
                  <h5>
