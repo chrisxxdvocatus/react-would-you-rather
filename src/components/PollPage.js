@@ -6,7 +6,7 @@ class PollPage extends Component {
     handleState = (e) => {
         e.preventDefault()
 
-        const {authedUser, id} = this.props
+        const {authedUser, id, dispatch} = this.props
         dispatch(handleUpdateQuestion({
             authedUser: authedUser,
             qid: id,
