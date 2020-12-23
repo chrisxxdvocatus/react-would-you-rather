@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import {handleUpdateQuestion} from '../actions/questions'
 
 class PollPage extends Component {
+    radioValue = (e) => {
+   
+    }
+    
     handleState = (e) => {
         e.preventDefault()
 
@@ -14,6 +18,7 @@ class PollPage extends Component {
         }))
     }
     render(){
+    
         const { authedUser,
             users,
             questions,
@@ -39,6 +44,7 @@ class PollPage extends Component {
         optionTwo,
         votedOptionTwo,
         authedAnswered)
+
        
         return(
             <div>
@@ -53,7 +59,7 @@ class PollPage extends Component {
                 <form onSubmit={(e)=>this.handleSubmit(e)}>
                     <input type="radio" value={optionOne} name='optionOne' />{optionOne}
                     <input type="radio" value={optionTwo} name='optionTwo' />{optionTwo}
-                    <input type="submit" value="submit" />
+                    <button type="button" onClick={this.radioValue()}>Submit</button>
                 </form></h5>
                 :
                  <h5>

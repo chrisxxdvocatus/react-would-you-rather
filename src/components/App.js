@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import ListOfPolls from './ListOfPolls'
 import PollPage from './PollPage'
+import Nav from './Nav'
 
 class App extends Component{
   componentDidMount(){
@@ -13,6 +14,7 @@ class App extends Component{
     return(
       <Router>
       <div>
+        <Nav />
        <Route path='/' exact component = {ListOfPolls} />
        <Route path='/polls/:id' component = {PollPage} />
       </div>
