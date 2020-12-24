@@ -3,18 +3,25 @@ import { connect } from 'react-redux'
 import {handleUpdateQuestion} from '../actions/questions'
 
 class PollPage extends Component {
-    radioValue = (e) => {
-   
+
+    state = {
+        selected:''
+    }
+    handleChange = (e) => {
+        this.setState({
+            selected: e.target.value
+        })
     }
     
-    handleState = (e) => {
-        e.preventDefault()
+    }
+    handleState = () => {
+        
 
         const {authedUser, id, dispatch} = this.props
         dispatch(handleUpdateQuestion({
             authedUser: authedUser,
             qid: id,
-            answer: e
+            answer: this.state.selected
         }))
     }
     render(){
@@ -56,10 +63,10 @@ class PollPage extends Component {
                   src={askedByAvatar} width="30"
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
-                <form onSubmit={(e)=>this.handleSubmit(e)}>
-                    <input type="radio" value={optionOne} name='optionOne' />{optionOne}
-                    <input type="radio" value={optionTwo} name='optionTwo' />{optionTwo}
-                    <button type="button" onClick={this.radioValue()}>Submit</button>
+                <form onSubmit={this.handleState()}>
+                    <input type="radio" value={optionOne} onChange={this.handleChange} name='optionOne' />{optionOne}
+                    <input type="radio" value={optionTwo} onChange={this.handleChange} name='optionTwo' />{optionTwo}
+                    <button type="submit" >Submit</button>
                 </form></h5>
                 :
                  <h5>
