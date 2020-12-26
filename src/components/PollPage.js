@@ -13,20 +13,13 @@ class PollPage extends Component {
         })
     }
     
-    handleChangeV = () => {
-        console.log('thisState', this.state)
-        console.log('thisprops',this.props)
-    }
     handleState = () => {
         
 
         const {authedUser, id, dispatch} = this.props
         if (this.state.selected !== ''){
-            dispatch(handleUpdateQuestion({
-                authedUser: authedUser,
-                qid: id,
-                answer: this.state.selected
-            }))
+            dispatch(handleUpdateQuestion(authedUser, id, this.state.selected
+            ))
 
         }
         // dispatch(handleUpdateQuestion({
@@ -36,7 +29,7 @@ class PollPage extends Component {
         // }))
     }
     render(){
-    
+        console.log('pollpage props', this.props)
         const { authedUser,
             users,
             questions,
@@ -49,20 +42,6 @@ class PollPage extends Component {
             optionTwo,
             votedOptionTwo,
             authedAnswered } = this.props
-        
-        console.log('pollpage thisprops', authedUser,
-        users,
-        questions,
-        id,
-        thisQuestion,
-        askedByName,
-        askedByAvatar,
-        optionOne,
-        votedOptionOne,
-        optionTwo,
-        votedOptionTwo,
-        authedAnswered)
-
        
         return(
             <div>
@@ -74,7 +53,7 @@ class PollPage extends Component {
                   src={askedByAvatar} width="30"
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
-                <form onSubmit={this.handleState()}>
+                <form onSubmit={this.handleState}>
                     <input type="radio" value={optionOne} onChange={this.handleChange} name='optionOne' />{optionOne}
                     <input type="radio" value={optionTwo} onChange={this.handleChange} name='optionTwo' />{optionTwo}
                     <button type="submit" >Submit</button>
