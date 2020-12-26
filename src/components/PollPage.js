@@ -13,16 +13,27 @@ class PollPage extends Component {
         })
     }
     
+    handleChangeV = () => {
+        console.log('thisState', this.state)
+        console.log('thisprops',this.props)
     }
     handleState = () => {
         
 
         const {authedUser, id, dispatch} = this.props
-        dispatch(handleUpdateQuestion({
-            authedUser: authedUser,
-            qid: id,
-            answer: this.state.selected
-        }))
+        if (this.state.selected !== ''){
+            dispatch(handleUpdateQuestion({
+                authedUser: authedUser,
+                qid: id,
+                answer: this.state.selected
+            }))
+
+        }
+        // dispatch(handleUpdateQuestion({
+        //     authedUser: authedUser,
+        //     qid: id,
+        //     answer: this.state.selected
+        // }))
     }
     render(){
     
