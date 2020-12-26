@@ -53,11 +53,11 @@ class PollPage extends Component {
                   src={askedByAvatar} width="30"
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
-                <form onSubmit={this.handleState}>
+                <div onClick={this.handleState}>
                     <input type="radio" value={optionOne} onChange={this.handleChange} name='optionOne' />{optionOne}
                     <input type="radio" value={optionTwo} onChange={this.handleChange} name='optionTwo' />{optionTwo}
                     <button type="submit" >Submit</button>
-                </form></h5>
+                </div></h5>
                 :
                  <h5>
                  <p>asked by {askedByName}</p>    
@@ -93,7 +93,7 @@ function mapStateToProps ({authedUser, users, questions},props){
     const optionTwo = thisQuestion.optionTwo.text
     let votedOptionTwo = thisQuestion.optionTwo.votes.length
     let authedAnswered = 'no'
-    if (users[authedUser] && Object.keys(users[authedUser]['answers']).includes(id)){
+    if (!!thisQuestion && users[authedUser] && Object.keys(users[authedUser]['answers']).includes(id)){
         authedAnswered = ['yes', users[authedUser]['answers'][id]]
     }
     return{
