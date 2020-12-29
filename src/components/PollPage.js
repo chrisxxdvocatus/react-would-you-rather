@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {handleUpdateQuestion} from '../actions/questions'
+import {handleUpdateQuestion, UPDATE_QUESTIONS} from '../actions/questions'
 
 class PollPage extends Component {
 
@@ -18,7 +18,11 @@ class PollPage extends Component {
 
         const {authedUser, id, dispatch} = this.props
         if (this.state.selected !== ''){
-            dispatch(handleUpdateQuestion(authedUser, id, this.state.selected
+            dispatch(handleUpdateQuestion({
+                authedUser,
+                qid: id, 
+                answer: this.state.selected
+            }
             ))
 
         }
@@ -54,8 +58,8 @@ class PollPage extends Component {
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
                 <div onClick={this.handleState}>
-                    <input type="radio" value={optionOne} onChange={this.handleChange} name='optionOne' />{optionOne}
-                    <input type="radio" value={optionTwo} onChange={this.handleChange} name='optionTwo' />{optionTwo}
+                    <input type="radio" value={"optionOne"} onChange={this.handleChange} name='optionOne' />{optionOne}
+                    <input type="radio" value={"optionTwo"} onChange={this.handleChange} name='optionTwo' />{optionTwo}
                     <button type="submit" >Submit</button>
                 </div></h5>
                 :

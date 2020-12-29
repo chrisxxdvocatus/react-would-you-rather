@@ -10,7 +10,8 @@ export default function questions(state ={}, action){
         case UPDATE_QUESTIONS:
             return{
                 ...state,
-                
+                ...action.users,
+                ...action.questions
             }
         default:
             return state
