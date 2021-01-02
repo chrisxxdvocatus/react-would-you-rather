@@ -10,8 +10,19 @@ export default function questions(state ={}, action){
         case UPDATE_QUESTIONS:
             return{
                 ...state,
-                ...action.users,
-                ...action.questions
+                [action.qid]:{
+                    ...state[action.qid],
+                    [optionOne]:{
+                        ...state[action.qid][optionOne],
+                        votes: action.answer ==='optionOne'
+                        ?
+                        state[action.qid][optionOne].votes.concat([action.authedUser])
+                        :
+                        state[action.qid][optionOne].votes
+
+                    }
+
+                }
             }
         default:
             return state
