@@ -11,14 +11,11 @@ export default function questions(state ={}, action){
             return{
                 ...state,
                 [action.qid]:{
-                    ...state[action.qid],
-                    [optionOne]:{
-                        ...state[action.qid][optionOne],
-                        votes: action.answer ==='optionOne'
-                        ?
-                        state[action.qid][optionOne].votes.concat([action.authedUser])
-                        :
-                        state[action.qid][optionOne].votes
+                    ...[action.qid],
+                    [action.answer]:{
+                        ...[action.answer],
+                        votes: 
+                        state[action.qid][action.answer].votes.concat([action.authedUser])
 
                     }
 
