@@ -8,7 +8,8 @@ export function setAuthedUser(id){
     }
 }
 
-export function updateAuthedUser(authedUser=null){
+export function updateAuthedUser(authedUser){
+
     return {
         type: UPDATE_AUTHED_USER,
         authedUser,

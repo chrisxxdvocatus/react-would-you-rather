@@ -5,7 +5,12 @@ export default function authedUser (state=null, action){
         case SET_AUTHED_USER:
             return action.id
         case UPDATE_AUTHED_USER:
-            return action.id
+            if (action.authedUser===undefined){
+                return null
+            } else {
+                return action.id
+            }
+            
         default:
             return state
     }

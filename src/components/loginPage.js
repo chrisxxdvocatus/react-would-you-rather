@@ -13,15 +13,20 @@ class loginPage extends Component {
             <div>
                 loginPage
                 
+                
             </div>
         )
     }
 }
 
-function mapStateToProps ({authedUser}){
-    
+function mapStateToProps ({authedUser, users}){
+    let usr=[]
+    for (let key in users){
+        usr.push(key)
+    }
     return{
-        authedUser
+        authedUser,
+        usr
     }
 }
 
