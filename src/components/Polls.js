@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 class Polls extends Component {
-    // handleClick =(e, id)=>{
-    //   e.preventDefault();
 
-    // }
 
     render(){
         console.log('Polls: ',this.props)

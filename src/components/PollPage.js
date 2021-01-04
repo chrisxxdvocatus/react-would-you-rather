@@ -26,19 +26,11 @@ class PollPage extends Component {
             ))
 
         }
-        // dispatch(handleUpdateQuestion({
-        //     authedUser: authedUser,
-        //     qid: id,
-        //     answer: this.state.selected
-        // }))
+
     }
     render(){
         console.log('pollpage props', this.props)
-        const { authedUser,
-            users,
-            questions,
-            id,  
-            thisQuestion,
+        const { 
             askedByName,
             askedByAvatar,
             optionOne,

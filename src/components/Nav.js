@@ -22,9 +22,11 @@ class Nav extends Component{
                     Leader Board
                     </NavLink>
                 </li>
-                <li>Hello {this.props.authedUser}!</li>
+                {!!this.props.authedUser
+                ? <li>Hello {this.props.authedUser}!</li>
+                : <li> </li>} 
                 <li>
-                    <NavLink to='/logOut' activeClassName = 'active'>
+                    <NavLink to='/loginPage' activeClassName = 'active'>
                     Log Out
                     </NavLink>
                 </li>
