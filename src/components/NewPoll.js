@@ -21,18 +21,19 @@ class NewPoll extends Component {
         e.preventDefault()
         const {optionOne, optionTwo} = this.state
         console.log('New Poll', optionOne, optionTwo)
+        this.props.dispatch(handleNewQuestion(this.state.optionOne, this.state.optionTwo))
         this.setState(()=>({
             optionOne:'',
             optionTwo:''
-        }))
-        this.props.dispatch(handleNewQuestion(this.state.optionOne, this.state.optionTwo))
+        }),()=>console.log('newPoll handleSubmit this state', this.state))
+        
     }
     render(){
         const {optionOne, optionTwo} = this.state
         return(
             <div>
                 <h3>Would you rather</h3>
-                <form onSubmit={this.handleSumbit}>
+                <form onSubmit={this.handleSubmit}>
                     <input placeholder="do this" name='optionOne' value={optionOne} 
                     onChange={this.handleChange} maxLength={200} />
                     or
