@@ -4,9 +4,19 @@ import {NavLink} from 'react-router-dom'
 
 class Nav extends Component{
     render() {
+        console.log('nav',this.props)
         return (
         <div className='nav'>
             <ul>
+                {this.props.authedUser==undefined
+                ?
+                <li>
+                    <NavLink to='/loginPage' activeClassName = 'active'>
+                    Log In First
+                    </NavLink>
+                </li>
+                :
+                <div>
                 <li>
                     <NavLink to='/' exact activeClassName = 'active'>
                     Home
@@ -22,14 +32,17 @@ class Nav extends Component{
                     Leader Board
                     </NavLink>
                 </li>
-                {!!this.props.authedUser
-                ? <li>Hello {this.props.authedUser}!</li>
-                : <li> </li>} 
+                <li>
+                Hello {this.props.authedUser}!
+                </li>
                 <li>
                     <NavLink to='/loginPage' activeClassName = 'active'>
                     Log Out
                     </NavLink>
                 </li>
+                </div>
+                }
+                
             </ul>
         </div>
         )

@@ -8,11 +8,11 @@ export function setAuthedUser(id){
     }
 }
 
-export function updateAuthedUser(authedUser){
+export function updateAuthedUser(id){
 
     return {
         type: UPDATE_AUTHED_USER,
-        authedUser,
+        id,
     }
 }
 

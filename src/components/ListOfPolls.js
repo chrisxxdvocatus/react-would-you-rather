@@ -21,8 +21,12 @@ class ListOfPolls extends Component {
         console.log('ListOfPolls: ',this.props)
         // console.log('local:', this.state)
         return(
+          <div>
+          {authedUser!==null
+            ?
             <div>
                 <h3>ListOfPolls</h3>
+                
                 <select onChange ={(e)=>this.handleState(e)}>
                   <option value ="answered">Show Answered Questions</option>
                   <option value="unanswered">Show Unanswered Questions</option>
@@ -43,6 +47,9 @@ class ListOfPolls extends Component {
                         </li>
                     ))}
                </div>
+            </div>
+            :
+            <div>Login first </div>}
             </div>
         )
     }

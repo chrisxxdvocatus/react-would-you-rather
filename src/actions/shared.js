@@ -11,7 +11,7 @@ const TEMP_AUTHED_ID = 'johndoe'
          .then(({users, questions})=>{
            dispatch(receiveQuestions(questions))
            dispatch(receiveUsers(users))
-           dispatch(setAuthedUser(TEMP_AUTHED_ID))
+           //dispatch(setAuthedUser(TEMP_AUTHED_ID))
          })
      }
  }

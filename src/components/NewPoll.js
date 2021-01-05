@@ -10,8 +10,9 @@ class NewPoll extends Component {
         const name = e.target.name
         this.setState(()=>({
             ...this.state,
-            [name]: val}))
-        console.log(this.state)
+            [name]: val}),
+            ()=>console.log(this.state))
+        
         console.log('e.target.name',e.target.name)
     }
 

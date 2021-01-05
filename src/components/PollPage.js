@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {handleUpdateQuestion, UPDATE_QUESTIONS} from '../actions/questions'
+import {handleUpdateQuestion} from '../actions/questions'
 
 class PollPage extends Component {
 
@@ -8,11 +8,10 @@ class PollPage extends Component {
         selected:''
     }
     handleChange = (e) => {
-        console.log('pollpage state', this.state)
         this.setState({
             selected: e.target.value
-        })
-        console.log('pollpage state changed', this.state)
+        },()=>console.log('pollpage state changed', this.state))
+        
     }
     
     handleState = () => {
@@ -52,8 +51,8 @@ class PollPage extends Component {
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
                 <div onClick={this.handleState}>
-                    <input type="radio" value={"optionOne"} onChange={this.handleChange} name='optionOne' />{optionOne}
-                    <input type="radio" value={"optionTwo"} onChange={this.handleChange} name='optionTwo' />{optionTwo}
+                    <input type="radio" value={"optionOne"} checked={this.state.answer==='optionOne'} onChange={this.handleChange} name='optionOne' />{optionOne}
+                    <input type="radio" value={"optionTwo"} checked={this.state.answer==='optionTwo'} onChange={this.handleChange} name='optionTwo' />{optionTwo}
                     <button type="submit" >Submit</button>
                 </div></h5>
                 :

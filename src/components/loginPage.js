@@ -5,40 +5,48 @@ import { updateAuthedUser } from '../actions/authedUser'
 class loginPage extends Component {
     componentDidMount(){
         this.props.dispatch(updateAuthedUser())
+        
       }
     
       state = {
-        authed: ''
+        authed: null
     }
 
     handleChange = (e) => {
-        console.log('loginPage local state (after)', this.state)
         const setter = e.target.value
-        this.setState({
-            authed: e.target.value
-        })
-        console.log('loginPage local state (after)',this.state)
+        this.setState({authed: setter})
+
     }
 
     handleState = () => {
-        console.log('loginPage handleState val checking',this.state)
-            //this.props.dispatch(updateAuthedUser(this.state.authed))
+        console.log('login page handleState', this.state)
+        this.props.dispatch(updateAuthedUser(this.state.authed))
+        this.forceUpdate();
     }
     render(){
         console.log('loginPage', this.props)
         const usr = this.props.usr
         return(
+             <div>
+            {this.props.authedUser===null
+            ?
             <div>
                 
                 <h3>Log in: </h3>
                 <div onClick ={(e)=>this.handleState(e)}><ol>
                 {usr.map(x=><li key={x}>
-                    <input type="radio" value={x} onChange={this.handleChange} />{x}</li>)}</ol>
+                    <input type="radio" checked={this.state.authed === x} value={x} onChange={this.handleChange} />{x}</li>)}</ol>
                     <button type="submit" >Submit</button>
                 </div>
 
                 
             </div>
+            :
+            <div> </div>
+            }
+            </div>
+
+            
         )
     }
 }
