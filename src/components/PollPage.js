@@ -8,9 +8,11 @@ class PollPage extends Component {
         selected:''
     }
     handleChange = (e) => {
+        console.log('pollpage state', this.state)
         this.setState({
             selected: e.target.value
         })
+        console.log('pollpage state changed', this.state)
     }
     
     handleState = () => {
