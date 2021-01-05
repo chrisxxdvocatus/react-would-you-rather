@@ -3,10 +3,7 @@ import { connect } from 'react-redux'
 import { updateAuthedUser } from '../actions/authedUser'
 
 class loginPage extends Component {
-    componentDidMount(){
-        this.props.dispatch(updateAuthedUser())
-        
-      }
+    
     
       state = {
         authed: null

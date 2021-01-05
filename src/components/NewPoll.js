@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { handleNewQuestion } from '../actions/questions'
 
 class NewPoll extends Component {
     state = {
@@ -13,7 +14,7 @@ class NewPoll extends Component {
             [name]: val}),
             ()=>console.log(this.state))
         
-        console.log('e.target.name',e.target.name)
+        
     }
 
     handleSubmit=(e)=>{
@@ -24,6 +25,7 @@ class NewPoll extends Component {
             optionOne:'',
             optionTwo:''
         }))
+        this.props.dispatch(handleNewQuestion(this.state.optionOne, this.state.optionTwo))
     }
     render(){
         const {optionOne, optionTwo} = this.state

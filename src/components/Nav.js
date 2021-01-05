@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import { updateAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component{
     render() {
@@ -36,7 +37,7 @@ class Nav extends Component{
                 Hello {this.props.authedUser}!
                 </li>
                 <li>
-                    <NavLink to='/loginPage' activeClassName = 'active'>
+                    <NavLink to='/loginPage' activeClassName = 'active' onClick={()=>this.props.dispatch(updateAuthedUser())}>
                     Log Out
                     </NavLink>
                 </li>
