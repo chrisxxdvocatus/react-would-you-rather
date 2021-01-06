@@ -34,7 +34,7 @@ export function handleNewQuestion(optionOneText, optionTwoText){
         const {authedUser} = getState()
         console.log('handlenewQ',getState())
 console.log('handlenewQ',optionOneText, optionTwoText, authedUser)
-        return saveQuestion ({optionOneText, optionTwoText, authedUser})
+        return saveQuestion ({optionOneText, optionTwoText, author: authedUser})
         .then((question)=>dispatch(saveNewQuestion(question)))
     }
 }
