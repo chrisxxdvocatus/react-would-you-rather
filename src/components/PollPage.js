@@ -15,7 +15,7 @@ class PollPage extends Component {
     }
     
     handleState = () => {
-        
+        console.log('pollpage props in handleState first', this.props)
 
         const {authedUser, id, dispatch} = this.props
         if (this.state.selected !== ''){
@@ -27,10 +27,11 @@ class PollPage extends Component {
             ))
 
         }
+        console.log('pollpage props in handleState second', this.props)
 
     }
     render(){
-        console.log('pollpage props', this.props)
+        console.log('pollpage props zero', this.props)
         const { 
             askedByName,
             askedByAvatar,
@@ -51,8 +52,10 @@ class PollPage extends Component {
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
                 <div onClick={this.handleState}>
-                    <input type="radio" value={"optionOne"} checked={this.state.answer==='optionOne'} onChange={this.handleChange} name='optionOne' />{optionOne}
-                    <input type="radio" value={"optionTwo"} checked={this.state.answer==='optionTwo'} onChange={this.handleChange} name='optionTwo' />{optionTwo}
+                    <input type="radio" value={"optionOne"} checked={this.state.selected==='optionOne'} 
+                    onChange={this.handleChange} name='optionOne' /> <label htmlFor='optionOne'>{optionOne}</label>
+                    <input type="radio" value={"optionTwo"} checked={this.state.selected==='optionTwo'} 
+                    onChange={this.handleChange} name='optionTwo' /><label htmlFor='optionTwo'>{optionTwo}</label>
                     <button type="submit" >Submit</button>
                 </div></h5>
                 :
