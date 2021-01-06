@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { handleNewQuestion } from '../actions/questions'
+import {connect} from 'react-redux'
 
 class NewPoll extends Component {
     state = {
@@ -46,5 +47,5 @@ class NewPoll extends Component {
     }
 }
 
-export default NewPoll
+export default connect()(NewPoll)
   
