@@ -37,9 +37,8 @@ export function handleNewQuestion(optionOneText, optionTwoText){
 
         return saveQuestion ({optionOneText, optionTwoText, author: authedUser})
         .then((question)=>
-        dispatch(saveNewQuestion(question)),
-        
-        //dispatch(saveAuthedNewQ(authedUser, question.id))
+        dispatch(saveNewQuestion(question))
+        dispatch(saveAuthedNewQ(authedUser, question.id))
         )
     }
 }
