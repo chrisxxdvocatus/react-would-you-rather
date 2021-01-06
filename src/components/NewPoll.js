@@ -12,8 +12,9 @@ class NewPoll extends Component {
         const name = e.target.name
         this.setState(()=>({
             ...this.state,
-            [name]: val}),
-            ()=>console.log('newPoll hndleChange',this.state))
+            [name]: val})
+            //,()=>console.log('newPoll hndleChange',this.state)
+            )
         
         
     }
@@ -22,11 +23,13 @@ class NewPoll extends Component {
         e.preventDefault()
         const {optionOne, optionTwo} = this.state
         //console.log('New Poll', optionOne, optionTwo)
-        this.props.dispatch(handleNewQuestion(this.state.optionOne, this.state.optionTwo))
+        this.props.dispatch(handleNewQuestion(optionOne, optionTwo))
         this.setState(()=>({
             optionOne:'',
             optionTwo:''
-        }),()=>console.log('after newPoll handleSubmit this state', this.state))
+        })
+        //,()=>console.log('after newPoll handleSubmit this state', this.state)
+        )
         
     }
     render(){

@@ -1,5 +1,5 @@
 import {saveQuestion, saveQuestionAnswer} from '../utils/api.js'
-import {updateUsers} from './users'
+import {updateUsers, saveAuthedNewQ} from './users'
 
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -29,13 +29,17 @@ function saveNewQuestion (question){
     }
 }
 
+
+
 export function handleNewQuestion(optionOneText, optionTwoText){
     return (dispatch, getState) =>{
         const {authedUser} = getState()
-        console.log('handlenewQ',getState())
-console.log('handlenewQ',optionOneText, optionTwoText, authedUser)
+
         return saveQuestion ({optionOneText, optionTwoText, author: authedUser})
-        .then((question)=>dispatch(saveNewQuestion(question)))
+        .then((question)=>
+        dispatch(saveNewQuestion(question)),
+        dispatch(saveAuthedNewQ(authedUser, question.id))
+        )
     }
 }
 
