@@ -1,4 +1,5 @@
 import {saveQuestion, saveQuestionAnswer} from '../utils/api.js'
+import {updateUsers} from './users'
 
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -40,6 +41,7 @@ export function handleNewQuestion(optionOneText, optionTwoText){
 export function handleUpdateQuestion (info){
     return (dispatch)=>{
         dispatch(updateQuestions(info))
+        dispatch(updateUsers(info))
 
         return saveQuestionAnswer(info)
          .catch((e)=>{

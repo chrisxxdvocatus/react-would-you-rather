@@ -15,7 +15,11 @@ class App extends Component{
   }
   render(){
     return(
-      <Router>
+      
+
+<Router>
+
+  
       <div>
         <Nav />
        <Route path='/' exact component = {ListOfPolls} />
