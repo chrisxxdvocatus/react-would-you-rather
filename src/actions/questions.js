@@ -22,7 +22,7 @@ function updateQuestions ({ authedUser, qid, answer }){
     }
 }
 
-function saveNewQuestion ({question}){
+function saveNewQuestion (question){
     return{
         type: ADD_QUESTION,
         question
