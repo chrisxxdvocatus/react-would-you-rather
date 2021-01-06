@@ -13,7 +13,7 @@ class NewPoll extends Component {
         this.setState(()=>({
             ...this.state,
             [name]: val}),
-            ()=>console.log(this.state))
+            ()=>console.log('newPoll hndleChange',this.state))
         
         
     }
@@ -21,12 +21,12 @@ class NewPoll extends Component {
     handleSubmit=(e)=>{
         e.preventDefault()
         const {optionOne, optionTwo} = this.state
-        console.log('New Poll', optionOne, optionTwo)
+        //console.log('New Poll', optionOne, optionTwo)
         this.props.dispatch(handleNewQuestion(this.state.optionOne, this.state.optionTwo))
         this.setState(()=>({
             optionOne:'',
             optionTwo:''
-        }),()=>console.log('newPoll handleSubmit this state', this.state))
+        }),()=>console.log('after newPoll handleSubmit this state', this.state))
         
     }
     render(){

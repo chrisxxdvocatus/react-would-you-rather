@@ -32,7 +32,8 @@ function saveNewQuestion ({question}){
 export function handleNewQuestion(optionOneText, optionTwoText){
     return (dispatch, getState) =>{
         const {authedUser} = getState()
-
+        console.log('handlenewQ',getState())
+console.log('handlenewQ',optionOneText, optionTwoText, authedUser)
         return saveQuestion ({optionOneText, optionTwoText, authedUser})
         .then((question)=>dispatch(saveNewQuestion(question)))
     }
