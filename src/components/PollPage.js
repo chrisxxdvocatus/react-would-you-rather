@@ -51,13 +51,13 @@ class PollPage extends Component {
                   src={askedByAvatar} width="30"
                   alt={`Avatar of ${askedByName}`} />
                 <p>would you rather</p>
-                <form onClick={this.handleState}>
+                <div >
                     <input type="radio" value={"optionOne"} checked={this.state.selected==='optionOne'} 
                     onChange={this.handleChange} name='optionOne' /> <label htmlFor='optionOne'>{optionOne}</label>
                     <input type="radio" value={"optionTwo"} checked={this.state.selected==='optionTwo'} 
                     onChange={this.handleChange} name='optionTwo' /><label htmlFor='optionTwo'>{optionTwo}</label>
-                    <button type="submit" >Submit</button>
-                </form></h5>
+                    <button type="submit" onClick={this.handleState} >Submit</button>
+                </div></h5>
                 :
                  <h5>
                  <p>asked by {askedByName}</p>    
