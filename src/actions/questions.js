@@ -36,10 +36,10 @@ export function handleNewQuestion(optionOneText, optionTwoText){
         const {authedUser} = getState()
 
         return saveQuestion ({optionOneText, optionTwoText, author: authedUser})
-        .then((question)=>
+        .then((question)=>{
         dispatch(saveNewQuestion(question))
         dispatch(saveAuthedNewQ(authedUser, question.id))
-        )
+        })
     }
 }
 
