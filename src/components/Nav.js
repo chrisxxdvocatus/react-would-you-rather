@@ -12,7 +12,7 @@ class Nav extends Component{
                 {this.props.authedUser==undefined
                 ?
                 <li>
-                    <NavLink to='/loginPage' activeClassName = 'active'>
+                    <NavLink to='/LoginPage' activeClassName = 'active'>
                     Log In First
                     </NavLink>
                 </li>
@@ -37,7 +37,7 @@ class Nav extends Component{
                 Hello {this.props.authedUser}!
                 </li>
                 <li>
-                    <NavLink to='/loginPage' activeClassName = 'active' onClick={()=>this.props.dispatch(updateAuthedUser())}>
+                    <NavLink to='/LoginPage' activeClassName = 'active' onClick={()=>this.props.dispatch(updateAuthedUser())}>
                     Log Out
                     </NavLink>
                 </li>

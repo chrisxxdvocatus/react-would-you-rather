@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {handleUpdateQuestion} from '../actions/questions'
+import {BrowserRouter as Router, useHistory} from 'react-router-dom'
 
 class PollPage extends Component {
 
@@ -10,12 +11,14 @@ class PollPage extends Component {
     handleChange = (e) => {
         this.setState({
             selected: e.target.value
-        },()=>console.log('pollpage state changed', this.state))
+        }
+        //,()=>console.log('pollpage state changed', this.state)
+        )
         
     }
     
     handleState = () => {
-        console.log('pollpage props in handleState first', this.props)
+        //console.log('pollpage props in handleState first', this.props)
 
         const {authedUser, id, dispatch} = this.props
         if (this.state.selected !== ''){
@@ -27,11 +30,11 @@ class PollPage extends Component {
             ))
 
         }
-        console.log('pollpage props in handleState second', this.props)
+        //console.log('pollpage props in handleState second', this.props)
 
     }
     render(){
-        console.log('pollpage props zero', this.props)
+        console.log('pollpage props', this.props)
         const { 
             askedByName,
             askedByAvatar,
@@ -42,7 +45,16 @@ class PollPage extends Component {
             authedAnswered } = this.props
        
         return(
-            <div>
+<div>
+            {this.props.authedUser===undefined
+            ?
+
+<div>
+{this.props.id}
+</div>
+            :
+
+<div>
                 {authedAnswered==='no'
                 ?
                 <h5>
@@ -78,12 +90,20 @@ class PollPage extends Component {
                 
                
             </div>
+
+            }   
+</div>
+
+
+
+            
         )
     }
 }
 
 function mapStateToProps ({authedUser, users, questions},props){
     const id = props.match.params.id
+
     const thisQuestion = questions[id]
     const askedByUser = thisQuestion['author']
     const askedByName = users[askedByUser]['name']
@@ -93,7 +113,8 @@ function mapStateToProps ({authedUser, users, questions},props){
     const optionTwo = thisQuestion.optionTwo.text
     let votedOptionTwo = thisQuestion.optionTwo.votes.length
     let authedAnswered = 'no'
-    if (!!thisQuestion && users[authedUser] && Object.keys(users[authedUser]['answers']).includes(id)){
+    
+    if (users[authedUser] && Object.keys(users[authedUser]['answers']).includes(id)){
         authedAnswered = ['yes', users[authedUser]['answers'][id]]
     }
     return{

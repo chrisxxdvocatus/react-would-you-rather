@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateAuthedUser } from '../actions/authedUser'
+import {BrowserRouter as Router, Redirect} from 'react-router-dom'
 
 class loginPage extends Component {
     
@@ -39,7 +40,9 @@ class loginPage extends Component {
                 
             </div>
             :
-            <div> </div>
+            <Router>   
+            <Redirect to = '/ListOfPolls' />
+            </Router>
             }
             </div>
 

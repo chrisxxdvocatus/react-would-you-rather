@@ -6,7 +6,7 @@ import ListOfPolls from './ListOfPolls'
 import PollPage from './PollPage'
 import NewPoll from './NewPoll'
 import leaderBoard from './leaderBoard'
-import loginPage from './loginPage'
+import LoginPage from './LoginPage'
 import Nav from './Nav'
 
 class App extends Component{
@@ -15,20 +15,16 @@ class App extends Component{
   }
   render(){
     return(
-      
-
-<Router>
-
-  
+  <Router>
       <div>
         <Nav />
        <Route path='/' exact component = {ListOfPolls} />
        <Route path='/polls/:id' component = {PollPage} />
        <Route path='/NewPoll' component = {NewPoll} />
        <Route path='/leaderBoard' component = {leaderBoard} />
-       <Route path='/loginPage' component = {loginPage} />
+       <Route path='/loginPage' component = {LoginPage} />
       </div>
-      </Router>
+  </Router>
 
     )
   }

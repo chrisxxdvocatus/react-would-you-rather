@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { handleNewQuestion } from '../actions/questions'
 import {connect} from 'react-redux'
+import LoginPage from './LoginPage'
 
 class NewPoll extends Component {
     state = {
@@ -35,7 +36,13 @@ class NewPoll extends Component {
     render(){
         const {optionOne, optionTwo} = this.state
         return(
-            <div>
+
+<div>
+{this.props.authedUser !== null
+? 
+<div>
+
+
                 <h3>Would you rather</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input placeholder="do this" name='optionOne' value={optionOne} 
@@ -45,10 +52,23 @@ class NewPoll extends Component {
                     onChange={this.handleChange} maxLength={200} />
                     <button type='submit' disabled={(optionOne==='' || optionTwo==='' )}>Submit</button>
                 </form>
-            </div>
+            
+
+</div>
+:
+<LoginPage />
+}
+</div>
+
+
+
+            
         )
     }
 }
 
 export default connect()(NewPoll)
   
+
+
+

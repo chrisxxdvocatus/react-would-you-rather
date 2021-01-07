@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import LoginPage from './LoginPage'
 
 class leaderBoard extends Component {
 
@@ -8,13 +9,20 @@ class leaderBoard extends Component {
         console.log('leaderBoard',this.props)
         const leaderArray = this.props.leaderArray
         return(
+            
             <div>
+                {this.props.authedUser !== null
+                ? 
+                <div>
                 leaderBoard
                 {leaderArray.map(x=><li key={x[0]}>
                     <h4>{x[0]}</h4>
                     <p>answered:{x[2]} asked: {x[3]} </p>
                     <h5>total score: {x[1]}</h5></li>)}
-                
+                </div>
+                :
+                <LoginPage />
+                }
             </div>
         )
     }
