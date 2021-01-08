@@ -9,6 +9,7 @@ import leaderBoard from './leaderBoard'
 import LoginPage from './LoginPage'
 import Nav from './Nav'
 import Error from './Error'
+import PrivateRoute from './PrivateRoute'
 
 class App extends Component{
   componentDidMount(){
@@ -23,7 +24,7 @@ class App extends Component{
        <Route path='/' exact component = {ListOfPolls} />
        <Route path='/polls/:id' component = {PollPage} />
        <Route path='/NewPoll' component = {NewPoll} />
-       <Route path='/leaderBoard' component = {leaderBoard} />
+       <PrivateRoute path='/leaderBoard' component = {leaderBoard} />
        <Route path='/loginPage' component = {LoginPage} />
        <Route component = {Error} />
 
