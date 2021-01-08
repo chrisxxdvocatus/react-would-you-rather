@@ -1,5 +1,5 @@
 import React, {Component}  from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import ListOfPolls from './ListOfPolls'
@@ -8,6 +8,7 @@ import NewPoll from './NewPoll'
 import leaderBoard from './leaderBoard'
 import LoginPage from './LoginPage'
 import Nav from './Nav'
+import Error from './Error'
 
 class App extends Component{
   componentDidMount(){
@@ -18,11 +19,16 @@ class App extends Component{
   <Router>
       <div>
         <Nav />
+        <Switch>
        <Route path='/' exact component = {ListOfPolls} />
        <Route path='/polls/:id' component = {PollPage} />
        <Route path='/NewPoll' component = {NewPoll} />
        <Route path='/leaderBoard' component = {leaderBoard} />
        <Route path='/loginPage' component = {LoginPage} />
+       <Route component = {Error} />
+
+        </Switch>
+       
       </div>
   </Router>
 

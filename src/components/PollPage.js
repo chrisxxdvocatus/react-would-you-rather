@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {handleUpdateQuestion} from '../actions/questions'
-import {BrowserRouter as Router, useHistory} from 'react-router-dom'
+
 
 class PollPage extends Component {
 
@@ -46,11 +46,11 @@ class PollPage extends Component {
        
         return(
 <div>
-            {!!this.props.authedUser
+            {this.props.invalid===true
             ?
 
 <div>
-{this.props.id}
+temp solution!
 </div>
             :
 
@@ -103,8 +103,12 @@ class PollPage extends Component {
 
 function mapStateToProps ({authedUser, users, questions},props){
     const id = props.match.params.id
-
     const thisQuestion = questions[id]
+    if (!thisQuestion){
+        return {
+            invalid: true
+        }
+    } 
     const askedByUser = thisQuestion['author']
     const askedByName = users[askedByUser]['name']
     const askedByAvatar = users[askedByUser]['avatarURL']
