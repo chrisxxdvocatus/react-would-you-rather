@@ -46,7 +46,7 @@ class PollPage extends Component {
        
         return(
 <div>
-            {this.props.authedUser===undefined
+            {!!this.props.authedUser
             ?
 
 <div>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import { updateAuthedUser } from '../actions/authedUser'
 
+
 class Nav extends Component{
     render() {
         console.log('nav',this.props)

@@ -26,7 +26,7 @@ class loginPage extends Component {
         const usr = this.props.usr
         return(
              <div>
-            {this.props.authedUser===null
+            {!this.props.authedUser
             ?
             <div>
                 
@@ -40,9 +40,7 @@ class loginPage extends Component {
                 
             </div>
             :
-            <Router>   
-            <Redirect to = '/ListOfPolls' />
-            </Router>
+            <div>Logged in already!</div>
             }
             </div>
 

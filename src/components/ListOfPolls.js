@@ -21,9 +21,8 @@ class ListOfPolls extends Component {
         console.log('ListOfPolls: ',this.props)
         // console.log('local:', this.state)
         return(
-          <div>
-          {authedUser!==null
-            ?
+          
+          
             <div>
                 <h3>ListOfPolls</h3>
                 
@@ -48,9 +47,8 @@ class ListOfPolls extends Component {
                     ))}
                </div>
             </div>
-            :
-            <div>Login first </div>}
-            </div>
+            
+            
         )
     }
 }

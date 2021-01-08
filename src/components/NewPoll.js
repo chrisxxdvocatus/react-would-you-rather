@@ -35,11 +35,10 @@ class NewPoll extends Component {
     }
     render(){
         const {optionOne, optionTwo} = this.state
+        console.log('newpoll', this.props)
         return(
 
-<div>
-{this.props.authedUser !== null
-? 
+
 <div>
 
 
@@ -55,10 +54,9 @@ class NewPoll extends Component {
             
 
 </div>
-:
-<LoginPage />
-}
-</div>
+
+
+
 
 
 
@@ -67,7 +65,15 @@ class NewPoll extends Component {
     }
 }
 
-export default connect()(NewPoll)
+function mapStateToProps ({ authedUser }) {
+    
+    return {
+     
+      authedUser,
+      
+    }
+  }
+export default connect(mapStateToProps)(NewPoll)
   
 
 
