@@ -60,4 +60,4 @@ function mapStateToProps ({authedUser, users}){
     }
 }
 
-export default connect(mapStateToProps)(loginPage)
+export default connect(mapStateToProps)(LoginPage)
