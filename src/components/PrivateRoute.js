@@ -5,7 +5,7 @@ import { Route, Redirect} from 'react-router-dom'
 const PrivateRoute = ({component: Component, ...rest} ) => (
     
     <Route {...rest} render ={(props)=>(
-        this.props.authedUser === true
+        props.authedUser === true
         ? <Component {...props}/>
         : <Redirect to = 'LoginPage'/>
     )} />
