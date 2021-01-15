@@ -21,7 +21,7 @@ class App extends Component{
       <div>
         <Nav />
         <Switch>
-       <Route path='/' exact component = {ListOfPolls} />
+       <PrivateRoute path='/' exact component = {ListOfPolls} />
        <Route path='/polls/:id' component = {PollPage} />
        <Route path='/NewPoll' component = {NewPoll} />
        <PrivateRoute path='/leaderBoard' component = {leaderBoard} />

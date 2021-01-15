@@ -19,7 +19,7 @@ class LoginPage extends Component {
     handleState = () => {
         console.log('login page handleState', this.state)
         this.props.dispatch(updateAuthedUser(this.state.authed))
-        this.forceUpdate();
+        
     }
     render(){
         console.log('loginPage', this.props)
@@ -39,8 +39,11 @@ class LoginPage extends Component {
 
                 
             </div>
-            :
-            <div>Logged in already!</div>
+            :this.props.history.push(this.props.location.state.from)===LoginPage    
+                    ? <div>Logged in already!</div>
+                    : this.props.history.push(this.props.location.state.from)
+
+            
             }
             </div>
 
