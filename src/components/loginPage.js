@@ -24,6 +24,7 @@ class LoginPage extends Component {
     render(){
         console.log('loginPage', this.props)
         const usr = this.props.usr
+        const { from } = this.props.location.state || { from: { pathname: '/' } };
         return(
              <div>
             {!this.props.authedUser
@@ -39,9 +40,9 @@ class LoginPage extends Component {
 
                 
             </div>
-            :this.props.history.push(this.props.location.state.from)===LoginPage    
+            :this.props.history.push(from)===LoginPage    
                     ? <div>Logged in already!</div>
-                    : this.props.history.push(this.props.location.state.from)
+                    : this.props.history.push(from)
 
             
             }

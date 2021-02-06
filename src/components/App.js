@@ -23,7 +23,7 @@ class App extends Component{
         <Switch>
        <PrivateRoute path='/' exact component = {ListOfPolls} />
        <Route path='/polls/:id' component = {PollPage} />
-       <Route path='/NewPoll' component = {NewPoll} />
+       <PrivateRoute path='/NewPoll' component = {NewPoll} />
        <PrivateRoute path='/leaderBoard' component = {leaderBoard} />
        <Route path='/loginPage' component = {LoginPage} />
        <Route component = {Error} />
