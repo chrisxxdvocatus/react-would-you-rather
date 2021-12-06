@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateAuthedUser } from '../actions/authedUser'
-import {BrowserRouter as Router, Redirect} from 'react-router-dom'
+//import {BrowserRouter as Router, Redirect} from 'react-router-dom'
 
 class LoginPage extends Component {
     

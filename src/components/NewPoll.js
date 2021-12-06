@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { handleNewQuestion } from '../actions/questions'
 import {connect} from 'react-redux'
-import LoginPage from './LoginPage'
+//import LoginPage from './LoginPage'
 
 class NewPoll extends Component {
     state = {

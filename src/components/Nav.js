@@ -10,7 +10,7 @@ class Nav extends Component{
         return (
         <div className='nav'>
             <ul>
-                {this.props.authedUser==undefined
+                {this.props.authedUser===undefined
                 ?
                 <li>
                     <NavLink to='/LoginPage' activeClassName = 'active'>
