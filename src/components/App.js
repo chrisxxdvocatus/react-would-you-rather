@@ -25,7 +25,7 @@ class App extends Component{
        <Route path='/polls/:id' component = {PollPage} />
        <PrivateRoute path='/NewPoll' component = {NewPoll} />
        <PrivateRoute path='/leaderBoard' component = {leaderBoard} />
-       <Route path='/loginPage' component = {LoginPage} />
+       <Route path='/LoginPage' component = {LoginPage} />
        <Route component = {Error} />
 
         </Switch>
