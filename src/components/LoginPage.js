@@ -31,7 +31,7 @@ class LoginPage extends Component {
             ?
             <div>
                 
-                <h3>Log in: </h3>
+                <h3>Log in FIRST: </h3>
                 <div onClick ={(e)=>this.handleState(e)}><ol>
                 {usr.map(x=><li key={x}>
                     <input type="radio" checked={this.state.authed === x} value={x} onChange={this.handleChange} />{x}</li>)}</ol>
